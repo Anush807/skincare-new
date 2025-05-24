@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,12 +49,13 @@
 
       <div>
         <label for="age">Age</label>
-        <input type="number" name="age" id="age" required>
+        <input type="number" name="age" id="age" min="13" max="80" required>
       </div>
 
       <div>
         <label for="description">Describe Your Skin Concerns</label>
-        <textarea name="description" id="description" rows="4" placeholder="e.g. Acne, dryness, irritation..."></textarea>
+        <textarea name="description" id="description" rows="4"
+          placeholder="e.g. Acne, dryness, irritation..."></textarea>
       </div>
 
       <button type="submit" id="recommendationForm">Get Recommendation</button>
@@ -85,4 +87,5 @@
     });
   </script>
 </body>
+
 </html>
