@@ -71,21 +71,27 @@
     </p>
   </footer>
 
-  <script>
-    document.getElementById("recommendationForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+ <script>
+  document.getElementById("recommendationForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      const skinType = document.getElementById("skin_type").value;
-      const age = document.getElementById("age").value;
-      const description = document.getElementById("description").value;
+    const skinType = document.getElementById("skin_type").value;
+    const age = parseInt(document.getElementById("age").value);
+    const description = document.getElementById("description").value;
 
-      localStorage.setItem("skin_type", skinType);
-      localStorage.setItem("age", age);
-      localStorage.setItem("description", description);
+    if (age < 13 || age > 80) {
+      alert("Please enter an age between 13 and 80.");
+      return;
+    }
 
-      window.location.href = "recommendation.html";
-    });
-  </script>
+    localStorage.setItem("skin_type", skinType);
+    localStorage.setItem("age", age);
+    localStorage.setItem("description", description);
+
+    window.location.href = "recommendation.html";
+  });
+</script>
+
 </body>
 
 </html>
