@@ -4,23 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlowWise</title>
+  <title>SkinWise</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <!-- Header -->
-  <header>
-    <div class="header-container">
-      <h1 class="header-title">GlowWise</h1>
-      <nav class="nav-links">
-        <a href="routine.html">Routine Guide</a>
-        <a href="https://www.nykaa.com" target="_blank">Product Finder</a>
-        <a href="#concerns">Skin Concerns</a>
-      </nav>
+ <header>
+  <div class="navbar">
+    <div class="header-title">SkinWise</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="routine.html">Routine</a>
+      <a href="https://r.search.yahoo.com/_ylt=Awrx_XhZ8zJoAQIAHye7HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1749379162/RO=10/RU=https%3a%2f%2fwww.nykaa.com%2fskin%2fc%2f8377/RK=2/RS=EiIsaZGiifwa3yz8QEdEqAr7BSc-">Product</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Separator -->
   <div class="separator"></div>
@@ -31,21 +33,47 @@
       <div id="loader">
         <div></div>
       </div>
+<h2>Get Your Personalized Skincare Advice</h2>
 
-      <h2>Get Your Personalized Skincare Advice</h2>
+<div>
+  <label for="skin_type">Skin Type</label>
+  
+  <!-- Wrap the select in a div -->
+  <div class="input-wrapper">
+    <select name="skin_type" id="skin_type" required>
+      <option value="oily">Oily</option>
+      <option value="dry">Dry</option>
+      <option value="combination">Combination</option>
+      <option value="normal">Normal</option>
+    </select>
+  </div>
 
-      <div>
-        <label for="skin_type">Skin Type</label>
-        <select name="skin_type" id="skin_type" required>
-          <option value="oily">Oily</option>
-          <option value="dry">Dry</option>
-          <option value="combination">Combination</option>
-          <option value="normal">Normal</option>
-        </select>
-        <p>
-          <a href="quiz.html" class="quiz-link">Not sure? Take our skin type quiz</a>
-        </p>
-      </div>
+  <!-- Link wrapper for proper margin -->
+  <div class="quiz-wrapper">
+    <a href="quiz.html" class="quiz-link">Not sure? Take our skin type quiz</a>
+  </div>
+</div>
+
+<style>
+  .input-wrapper {
+    margin-bottom: 10px; /* Space below select */
+  }
+
+  .quiz-wrapper {
+    margin-top: 0; /* Optional, can be adjusted */
+  }
+
+  .quiz-link {
+    color: #004225; /* Optional styling */
+    text-decoration: none;
+  }
+
+  .quiz-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
 
       <div>
         <label for="age">Age</label>

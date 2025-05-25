@@ -2,55 +2,71 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #5A453A;
-  color: white;
+  background-color: #A1B4A1; /* swapped with navbar */
+  color: #1f2e1f;
 }
 
 /* Header */
 header {
-  background-color: #5A453A;
-  padding: 1.5rem 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  background-color: #738873; /* swapped with body */
+  padding: 1.25rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.header-container {
+/* Header Container (Navbar) */
+.navbar {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #738873;
+  border-radius: 0.75rem;
+  flex-wrap: wrap;
 }
 
+/* Header Title */
 .header-title {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 800;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-links a {
-  margin-left: 1.5rem;
   text-decoration: none;
   color: white;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #D6E2D6; /* Soft green hover */
 }
 
 /* Separator */
 .separator {
   height: 1px;
-  background-color: #F2ECE4;
-  opacity: 0.5;
+  background-color: #D6E2D6;
+  opacity: 0.6;
 }
 
 /* Main Form */
 main {
+  background-color: #A1B4A1;
   display: flex;
   justify-content: center;
   padding: 3rem 1.5rem;
-  background-color: #5A453A;
 }
 
 form {
@@ -58,15 +74,15 @@ form {
   max-width: 600px;
   padding: 3rem 2rem;
   border-radius: 1.5rem;
-  background-color: #F9F5F0;
-  color: #5A453A;
-  border: 1px solid #5A453A;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background-color: #EDF1ED;
+  color: #1f2e1f;
+  border: 1px solid #A1B4A1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 form:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 form h2 {
@@ -83,29 +99,46 @@ form label {
 }
 
 form input,
-form select,
 form textarea {
   width: 100%;
   padding: 0.9rem 1.2rem;
   margin-bottom: 1.8rem;
   border-radius: 0.75rem;
-  border: 1px solid #ccc;
   font-size: 1rem;
+  border: 1px solid #ccc;
   background-color: #fff;
   box-sizing: border-box;
   transition: border 0.3s, box-shadow 0.3s;
 }
+
+form select {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  height: auto; /* prevent browser default oversized height */
+  margin-bottom: 0.5rem; /* less than the default */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s;
+  line-height: 1.2;
+}
+
+
 form input:focus,
 form select:focus,
 form textarea:focus {
-  border-color: #a67c52;
-  box-shadow: 0 0 0 3px #c4a99155;
+  border-color: #A1B4A1;
+  box-shadow: 0 0 0 3px #B6C6B655;
 }
 
 /* Quiz link */
 .quiz-link {
+   
+    margin-top: 8px;
   font-size: 0.875rem;
-  color: #5A453A;
+  color: #A1B4A1;
   text-decoration: none;
 }
 
@@ -122,14 +155,16 @@ button[type="submit"] {
   font-weight: 600;
   font-size: 1rem;
   color: white;
-  background: linear-gradient(135deg, #A770EF, #FDB99B);
+  background: linear-gradient(135deg, #A1B4A1, #738873);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(167, 112, 239, 0.3);
+  box-shadow: 0 8px 20px rgba(100, 120, 100, 0.3);
 }
+
 /* Loader */
 #loader {
   display: none;
@@ -144,7 +179,7 @@ button[type="submit"]:hover {
 #loader div {
   width: 64px;
   height: 64px;
-  border: 4px solid #5A453A;
+  border: 4px solid #A1B4A1;
   border-top-color: transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -158,7 +193,8 @@ button[type="submit"]:hover {
 
 /* Footer */
 footer {
-  background-color: #5A453A;
+  background-color: #738873; /* swapped */
+  color: white;
   padding: 1rem 0;
   text-align: center;
 }
