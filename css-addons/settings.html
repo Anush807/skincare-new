@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | Health Monitor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  /* Full page lavender background with sidebar and content aligned */
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #C2B8F2; /* Lavender Mist */
+  }
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    color: #333;
+  }
+
+  /* Sidebar styles */
+  .navbar {
+    flex-shrink: 0;
+    width: 250px;
+    background-color: #C2B8F2;
+    color: white;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    transition: width 0.5s ease;
+  }
+
+  .navbar.collapsed {
+    width: 70px;
+  }
+
+  .toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .navbar h1 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+  }
+
+  .navbar.collapsed h1 {
+    opacity: 0;
+  }
+
+  .navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar.collapsed .nav-text {
+    display: none;
+  }
+
+  .navbar nav a:hover {
+    transform: translateX(5px);
+    text-decoration: underline;
+  }
+
+  /* Main content container - flex 1 to fill space */
+  .content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* center the white container horizontally */
+    align-items: flex-start;
+    padding: 50px 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #C2B8F2; /* lavender background */
+  }
+
+  /* The white content panel with max width */
+  .settings-container {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(194, 184, 242, 0.3);
+    max-width: 700px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Headings inside panel */
+  h1 {
+    color: #4A4A4A;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Form items */
+  .settings-item {
+    margin-bottom: 25px;
+    position: relative;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #4A4A4A;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #A999E0;
+    outline: none;
+    box-shadow: 0 0 4px rgba(194, 184, 242, 0.4);
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 42px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #999;
+    font-size: 16px;
+  }
+
+  /* Responsive for smaller screens */
+  @media (max-width: 768px) {
+    .content {
+      padding: 20px 15px;
+    }
+
+    .settings-container {
+      padding: 30px 20px;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .navbar {
+      width: 70px;
+      padding: 20px 10px;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <div class="navbar" id="navbar">
+    <button class="toggle-btn" onclick="toggleNavbar()"><i class="fas fa-bars"></i></button>
+    <h1>Health Monitor</h1>
+    <nav>
+      <a href="home.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a>
+      <a href="dashboard.html"><i class="fas fa-chart-line"></i><span class="nav-text">Dashboard</span></a>
+      <a href="profile.html"><i class="fas fa-user"></i><span class="nav-text">Profile</span></a>
+      <a href="reports.html"><i class="fas fa-file-medical-alt"></i><span class="nav-text">Reports</span></a>
+      <a href="settings.html"><i class="fas fa-cog"></i><span class="nav-text">Settings</span></a>
+      <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Logout</span></a>
+    </nav>
+  </div>
+
+  <div class="content">
+    
+    <div class="settings-container">
+      <h1>Settings</h1>
+      <div class="settings-item">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter new email">
+      </div>
+      <div class="settings-item">
+        <label for="password">Change Password</label>
+        <input type="password" id="password" placeholder="Enter new password">
+        <button class="toggle-password" onclick="togglePassword('password', 'eye-icon')">
+          <i class="fas fa-eye" id="eye-icon"></i>
+        </button>
+      </div>
+      <div class="settings-item">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm new password">
+        <button class="toggle-password" onclick="togglePassword('confirm-password', 'eye-icon2')">
+          <i class="fas fa-eye" id="eye-icon2"></i>
+        </button>
+      </div>
+      <div class="settings-item">
+        <label for="notif">Notification Preferences</label>
+        <input type="text" id="notif" placeholder="Email, SMS, etc">
+      </div>
+      <div class="settings-item">
+        <a href="forgot-password.html">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleNavbar() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('collapsed');
+    }
+
+    function togglePassword(inputId, iconId) {
+      const passwordInput = document.getElementById(inputId);
+      const eyeIcon = document.getElementById(iconId);
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+  </script>
+</body>
+</html>

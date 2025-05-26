@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports | Health Monitor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+   body {
+  background-color: #C2B8F2; /* Lavender Mist background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  color: #4A4A4A;
+}
+
+.navbar {
+  width: 250px;
+  background-color: #A999E0; /* Softer lavender sidebar */
+  color: white;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.5s ease;
+  position: relative;
+  box-shadow: 0 0 15px rgba(161, 153, 224, 0.6);
+  border-radius: 0 20px 20px 0;
+}
+
+.navbar.collapsed {
+  width: 70px;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  color: #4A4A4A;
+  font-weight: 700;
+}
+
+.navbar.collapsed h1 {
+  opacity: 0;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.navbar.collapsed .nav-text {
+  display: none;
+}
+
+.navbar nav a:hover {
+  color: #fbc2eb; /* soft pink highlight */
+  background-color: #876dd6; /* deeper purple background */
+  transform: translateX(5px);
+}
+
+.content {
+  flex: 1;
+  padding: 50px;
+  overflow-y: auto;
+  color: #4A4A4A;
+}
+
+h1 {
+  color: #4A4A4A;
+  font-weight: 700;
+}
+
+.report-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(161, 153, 224, 0.3);
+  max-width: 800px;
+}
+
+.report-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dcd6f7;
+  padding-bottom: 10px;
+}
+
+.report-item:last-child {
+  border-bottom: none;
+}
+
+.report-item h3 {
+  color: #6b57c3;
+  margin-bottom: 5px;
+}
+
+.report-item p {
+  font-size: 16px;
+  color: #4A4A4A;
+}
+
+  </style>
+</head>
+<body>
+  <div class="navbar" id="navbar">
+    <button class="toggle-btn" onclick="toggleNavbar()"><i class="fas fa-bars"></i></button>
+    <h1>Health Monitor</h1>
+    <nav>
+      <a href="home.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a>
+      <a href="dashboard.html"><i class="fas fa-chart-line"></i><span class="nav-text">Dashboard</span></a>
+      <a href="profile.html"><i class="fas fa-user"></i><span class="nav-text">Profile</span></a>
+      <a href="reports.html"><i class="fas fa-file-medical-alt"></i><span class="nav-text">Reports</span></a>
+      <a href="settings.html"><i class="fas fa-cog"></i><span class="nav-text">Settings</span></a>
+      <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Logout</span></a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <h1>Health Reports</h1>
+    <div class="report-container">
+      <div class="report-item">
+        <h3>Blood Pressure</h3>
+        <p>120/80 mmHg</p>
+      </div>
+      <div class="report-item">
+        <h3>Heart Rate</h3>
+        <p>72 bpm</p>
+      </div>
+      <div class="report-item">
+        <h3>Cholesterol</h3>
+        <p>190 mg/dL</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleNavbar() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('collapsed');
+    }
+  </script>
+</body>
+</html>

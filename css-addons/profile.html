@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile | Health Monitor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+   body {
+  background-color: #C2B8F2; /* Lavender Mist */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  width: 250px;
+  background-color: #a49be1; /* Deeper lavender for navbar */
+  color: white;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.navbar.collapsed {
+  width: 70px;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.navbar.collapsed h1 {
+  opacity: 0;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar.collapsed .nav-text {
+  display: none;
+}
+
+.navbar nav a:hover {
+  color: #ffd700; /* Golden yellow for hover */
+  transform: translateX(5px);
+}
+
+.content {
+  flex: 1;
+  padding: 50px;
+  transition: padding 0.5s ease;
+}
+
+h1 {
+  color: #4c3d99; /* Deep lavender for headings */
+}
+
+.profile-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.profile-field {
+  margin-bottom: 20px;
+}
+
+.profile-field label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.profile-field input:focus {
+  border-color: #C2B8F2;
+  outline: none;
+}
+
+.save-btn {
+  background-color: #6b57c3; /* Strong lavender button */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #5947a1;
+}
+
+  </style>
+</head>
+<body>
+  <div class="navbar" id="navbar">
+    <button class="toggle-btn" onclick="toggleNavbar()"><i class="fas fa-bars"></i></button>
+    <h1>Health Monitor</h1>
+    <nav>
+      <a href="home.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a>
+      <a href="dashboard.html"><i class="fas fa-chart-line"></i><span class="nav-text">Dashboard</span></a>
+      <a href="profile.html"><i class="fas fa-user"></i><span class="nav-text">Profile</span></a>
+      <a href="reports.html"><i class="fas fa-file-medical-alt"></i><span class="nav-text">Reports</span></a>
+      <a href="settings.html"><i class="fas fa-cog"></i><span class="nav-text">Settings</span></a>
+      <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Logout</span></a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <h1>Your Profile</h1>
+    <div class="profile-card">
+      <div class="profile-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" value="John Doe" />
+      </div>
+      <div class="profile-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" value="john@example.com" />
+      </div>
+      <div class="profile-field">
+        <label for="age">Age</label>
+        <input type="number" id="age" value="30" />
+      </div>
+      <div class="profile-field">
+        <label for="gender">Gender</label>
+        <input type="text" id="gender" value="Male" />
+      </div>
+      <button class="save-btn">Save Changes</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleNavbar() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('collapsed');
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
